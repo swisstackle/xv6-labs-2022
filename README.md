@@ -21,10 +21,5 @@ Write a program that uses UNIX system calls to ''ping-pong'' a byte between two 
 [Solution](https://github.com/swisstackle/xv6-labs-2022/commit/c6bd4c94729772b315350a3da9635efe0d939e43)
 
 ## Build & Test
-
-### Step1
-To build the OS to try out the labs, you will need to add the README file from the git repository git://g.csail.mit.edu/xv6-labs-2022 to this repository. This is a requirement from the Makefile.
-
-### Step 2
-After you added the README file, you can hit either `make qemu` to start the OS or hit `make grade` to test all the labs with testcases.
+You can hit either `make qemu` to start the OS or hit `make grade` to test all the labs with testcases.
 You can also hit `./grade-lab-util sleep` and replace `sleep` with any of the labnames to test each lab individually.
