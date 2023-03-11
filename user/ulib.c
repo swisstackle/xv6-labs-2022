@@ -64,6 +64,42 @@ strchr(const char *s, char c)
 }
 
 char*
+strcat(char* destination, const char* source)
+{
+	char* ptr = destination + strlen(destination);
+
+	// appends characters of the source to the destination string
+	while (*source != '\0') {
+		*ptr++ = *source++;
+	}
+
+	// null terminate destination string
+	*ptr = '\0';
+
+	// the destination is returned by standard `strcat()`
+	return destination;
+}
+
+char* strtrim(char *str) {
+	char *end;   
+	while(*str == ' ') {
+		str++;
+	}
+	if(*str == 0) { // If all spaces, return an empty string
+		return str;
+	}
+	// Trim trailing spaces
+	end = str + strlen(str) - 1;
+	while(end > str && *end == ' ') {
+		end--;
+	}
+	// Null terminate the string
+	*(end + 1) = 0;
+	return str;
+}
+
+
+char*
 gets(char *buf, int max)
 {
   int i, cc;
