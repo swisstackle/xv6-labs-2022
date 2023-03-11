@@ -20,6 +20,16 @@ Write a program that uses UNIX system calls to ''ping-pong'' a byte between two 
  
 [Solution](https://github.com/swisstackle/xv6-labs-2022/commit/c6bd4c94729772b315350a3da9635efe0d939e43)
 
+### Assignment 4: Find
+
+Write a simple version of the UNIX find program: find all the files in a directory tree with a specific name. Your solution should be in the file user/find.c.
+
+[Solution](https://github.com/swisstackle/xv6-labs-2022/commit/295767e2c34878f778d8ce03e128a78fb407df37)
+
+Ulib.c C library functions were added for the find function to work: `strtrim` and `strcat`.
+
 ## Build & Test
 You can hit either `make qemu` to start the OS or hit `make grade` to test all the labs with testcases.
 You can also hit `./grade-lab-util sleep` and replace `sleep` with any of the labnames to test each lab individually.
+
+
