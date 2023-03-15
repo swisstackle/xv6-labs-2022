@@ -28,6 +28,14 @@ Write a simple version of the UNIX find program: find all the files in a directo
 
 Ulib.c C library functions were added for the find function to work: `strtrim` and `strcat`.
 
+### Assignment 5: Xargs
+
+Write a simple version of the UNIX xargs program: its arguments describe a command to run, it reads lines from the standard input, and it runs the command for each line, appending the line to the command's arguments. Your solution should be in the file user/xargs.c. 
+
+[Solution](https://github.com/swisstackle/xv6-labs-2022/commit/87850aee8c4191f27bacc3cd7dca16cb5fab241c)
+
+Ulib.c C library functions were added for the find function to work: `strtrim` and `strcat`.
+
 ## Build & Test
 You can hit either `make qemu` to start the OS or hit `make grade` to test all the labs with testcases.
 You can also hit `./grade-lab-util sleep` and replace `sleep` with any of the labnames to test each lab individually.
