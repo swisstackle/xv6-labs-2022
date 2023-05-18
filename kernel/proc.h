@@ -104,4 +104,5 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
+  int trace_arg;			   // Integer that represents which system calls to trace with the trace system call. Format is 1 << (System Call Number). Which ever bit's counted from the right are set, are the system calls to trace. 
 };

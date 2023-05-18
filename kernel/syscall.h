@@ -20,3 +20,29 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
+#define SYS_trace  22
+
+// System call names for dynamic syscall_names array generated in kernel/syscall.c. Will eventually do the same for the system call function table in kernel/syscall.c to make things more modular and less "editive". Note: trace is not included because the names array is// for the trace system call itself.
+#define SYSTEM_CALLS \
+    X(fork) \
+    X(exit) \
+    X(wait) \
+    X(pipe) \
+    X(read) \
+    X(kill) \
+    X(exec) \
+    X(fstat) \
+    X(chdir) \
+    X(dup) \
+    X(getpid) \
+    X(sbrk) \
+    X(sleep) \
+    X(uptime) \
+    X(open) \
+    X(write) \
+    X(mknod) \
+    X(unlink) \
+    X(link) \
+    X(mkdir) \
+    X(close) \
+	X(trace)

@@ -282,13 +282,13 @@ fork(void)
   int i, pid;
   struct proc *np;
   struct proc *p = myproc();
-
+  
   // Allocate process.
   if((np = allocproc()) == 0){
     return -1;
   }
-
-  // Copy user memory from parent to child.
+  np->trace_arg = p->trace_arg;
+    // Copy user memory from parent to child.
   if(uvmcopy(p->pagetable, np->pagetable, p->sz) < 0){
     freeproc(np);
     release(&np->lock);
@@ -313,7 +313,7 @@ fork(void)
   pid = np->pid;
 
   release(&np->lock);
-
+	
   acquire(&wait_lock);
   np->parent = p;
   release(&wait_lock);
@@ -321,7 +321,8 @@ fork(void)
   acquire(&np->lock);
   np->state = RUNNABLE;
   release(&np->lock);
-
+  // copy trace mask from the parent to the child process.
+ // np->trace_arg = p->trace_arg;
   return pid;
 }
 
@@ -347,7 +348,7 @@ void
 exit(int status)
 {
   struct proc *p = myproc();
-
+  p->trace_arg = 0;
   if(p == initproc)
     panic("init exiting");
 
