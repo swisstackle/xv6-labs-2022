@@ -38,4 +38,16 @@ Write a simple version of the UNIX xargs program: its arguments describe a comma
 You can hit either `make qemu` to start the OS or hit `make grade` to test all the labs with testcases.
 You can also hit `./grade-lab-util sleep` and replace `sleep` with any of the labnames to test each lab individually.
 
+## Lab 2: System Calls
 
+### Assignment 1: Use gdb
+
+See https://pdos.csail.mit.edu/6.828/2022/labs/syscall.html
+
+### Assignment 2: System call tracing
+
+In this assignment you will add a system call tracing feature that may help you when debugging later labs. You'll create a new trace system call that will control tracing. It should take one argument, an integer "mask", whose bits specify which system calls to trace. For example, to trace the fork system call, a program calls trace(1 << SYS_fork), where SYS_fork is a syscall number from kernel/syscall.h. You have to modify the xv6 kernel to print out a line when each system call is about to return, if the system call's number is setin the mask. The line should contain the process id, the name of the system call and the return value; you don't need to print the system call arguments. The trace system call should enable tracing for the process that calls it and any children that it subsequently forks, but should not affect other processes.
+
+### Assignment 3: Sysinfo
+
+In this assignment you will add a system call, sysinfo, that collects information about the running system. The system call takes one argument: a pointer to a struct sysinfo (see kernel/sysinfo.h). The kernel should fill out the fields of this struct: the freemem fieldshould be set to the number of bytes of free memory, and the nproc field should be set to the number of processes whose state is not UNUSED. We provide a test program sysinfotest; you pass this assignment if it prints "sysinfotest: OK".
