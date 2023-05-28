@@ -5,6 +5,7 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "defs.h"
+#include "sysinfo.h"
 
 struct cpu cpus[NCPU];
 
@@ -681,4 +682,19 @@ procdump(void)
     printf("%d %s %s", p->pid, state, p->name);
     printf("\n");
   }
+}
+
+// Counts number of processes who's status is not UNUSED
+void
+count_active_procs(struct sysinfo *si) {
+	int count = 0;
+    struct proc *p;
+    for (p = &proc[0]; p < &proc[NPROC]; p++) {
+		acquire(&p->lock);
+        if (p->state != UNUSED) {
+            count++;
+        }
+		release(&p->lock);
+    }
+	si->nproc = count;
 }
